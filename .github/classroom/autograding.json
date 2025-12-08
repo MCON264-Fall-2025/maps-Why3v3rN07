@@ -1,0 +1,35 @@
+{
+  "tests": [
+    {
+      "name": "Group Anagrams Tests",
+      "setup": "cd exercises && mvn clean compile test-compile",
+      "run": "cd exercises && mvn test -Dtest=GroupAnagramsTest",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 33
+    },
+    {
+      "name": "Max Sum Pair Equal Digit Sum Tests",
+      "setup": "",
+      "run": "cd exercises && mvn test -Dtest=MaxSumPairEqualDigitSumTest",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 33
+    },
+    {
+      "name": "Minimum Consecutive Cards Tests",
+      "setup": "",
+      "run": "cd exercises && mvn test -Dtest=MinimumConsecutiveCardsTest",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 34
+    }
+  ]
+}
+
