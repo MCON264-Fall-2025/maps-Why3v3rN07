@@ -1,5 +1,9 @@
 package hashmap_exercises;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+
 /**
  * LeetCode 2342 - Max Sum of a Pair With Equal Sum of Digits
  *
@@ -26,7 +30,23 @@ public class MaxSumPairEqualDigitSum {
      *         or -1 if no such pair exists
      */
     public int maximumSum(int[] nums) {
-        // TODO: implement
+        HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
+        for (int i = 0 ; i < nums.length ; i++) {
+            int sum = digitSum(nums[i]);
+            map.putIfAbsent(sum, new ArrayList<>());
+            map.get(sum).add(nums[i]);
+        }
+        int biggest = -1;
+        for (Integer key : map.keySet()) {
+            map.get(key).sort(Integer::compareTo);
+            Collections.reverse(map.get(key));
+            if (map.get(key).size() >= 2)
+                if (biggest < map.get(key).get(0) + map.get(key).get(1))
+                    biggest =  map.get(key).get(0) + map.get(key).get(1);
+        }
+        return biggest;
+
+
         // Common approach:
         // - For each number, compute its digit sum.
         // - Use a Map<Integer, Integer> digitSum -> highest number seen with this digit sum.
@@ -37,7 +57,7 @@ public class MaxSumPairEqualDigitSum {
         //     else,
         //        store nums[i] as bestSoFar.
         // - Return answer.
-        return -1;
+
     }
 
     /**
